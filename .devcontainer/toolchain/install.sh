@@ -73,6 +73,38 @@ chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${WASMTOOLS_INSTALL_DIR}"
 
 echo "Wasm Tools ${WASMTOOLS_VERSION} has been installed for ${_REMOTE_USER}"
 
+#######
+# WAC #
+#######
+WAC_VERSION="0.6.1"
+WAC_DIST="wac-cli-x86_64-unknown-linux-musl"
+WAC_DOWNLOAD_URL="https://github.com/bytecodealliance/wac/releases/download/v${WAC_VERSION}/${WAC_DIST}"
+WAC_INSTALL_DIR="/home/${_REMOTE_USER}/.local/wac"
+WAC_PATH="${WAC_INSTALL_DIR}/${WAC_DIST}"
+
+# Create Wac installation directory
+mkdir -p "${WAC_INSTALL_DIR}"
+
+# Download and extract Wac
+echo "Downloading Wac ${WAC_VERSION}..."
+curl -fsSL "${WAC_DOWNLOAD_URL}" -o "${WAC_INSTALL_DIR}/wac"
+
+# Update bashrc if not already configured
+WAC_BASHRC_ENTRY="export PATH=\"\${PATH}:${WAC_INSTALL_DIR}/\""
+
+if ! grep -q "${WAC_PATH}" "${BASHRC_FILE}"; then
+    echo "Updating ${BASHRC_FILE} for Wac..."
+    echo "" >> "${BASHRC_FILE}"
+    echo "# Wac ${WAC_VERSION}" >> "${BASHRC_FILE}"
+    echo "${WAC_BASHRC_ENTRY}" >> "${BASHRC_FILE}"
+fi
+
+# Set proper ownership
+chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${WAC_INSTALL_DIR}"
+chmod u+x "${WAC_INSTALL_DIR}/wac"
+
+echo "Wac ${WAC_VERSION} has been installed for ${_REMOTE_USER}"
+
 ###############
 # Wit Bindgen #
 ###############
