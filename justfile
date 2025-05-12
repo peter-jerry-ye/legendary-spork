@@ -14,7 +14,7 @@ build target=("debug"):
     wac plug cli/target/cli.wasm --plug lib/build/wasi-sqlite.wasm -o cli/target/executable.wasm
 
 regenerate:
-    wit-bindgen c wit -w exports --out-dir lib
+    wit-bindgen c wit -w exports --out-dir lib/gen
     wit-bindgen markdown wit -w exports --out-dir docs
     wit-bindgen markdown wit -w imports --out-dir docs
     wit-bindgen moonbit wit -w imports --derive-eq --derive-show --derive-error --ignore-stub --out-dir deps
