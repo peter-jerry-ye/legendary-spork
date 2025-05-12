@@ -105,6 +105,38 @@ chmod u+x "${WAC_INSTALL_DIR}/wac"
 
 echo "Wac ${WAC_VERSION} has been installed for ${_REMOTE_USER}"
 
+############
+# WIT-DEPS #
+############
+WIT_DEPS_VERSION="0.5.0"
+WIT_DEPS_DIST="wit-deps-x86_64-unknown-linux-musl"
+WIT_DEPS_DOWNLOAD_URL="https://github.com/bytecodealliance/wit-deps/releases/download/v${WIT_DEPS_VERSION}/${WIT_DEPS_DIST}"
+WIT_DEPS_INSTALL_DIR="/home/${_REMOTE_USER}/.local/wit-deps"
+WIT_DEPS_PATH="${WIT_DEPS_INSTALL_DIR}/${WIT_DEPS_DIST}"
+
+# Create wit-deps installation directory
+mkdir -p "${WIT_DEPS_INSTALL_DIR}"
+
+# Download and extract wit-deps
+echo "Downloading wit-deps ${WIT_DEPS_VERSION}..."
+curl -fsSL "${WIT_DEPS_DOWNLOAD_URL}" -o "${WIT_DEPS_INSTALL_DIR}/wit-deps"
+
+# Update bashrc if not already configured
+WIT_DEPS_BASHRC_ENTRY="export PATH=\"\${PATH}:${WIT_DEPS_INSTALL_DIR}/\""
+
+if ! grep -q "${WIT_DEPS_PATH}" "${BASHRC_FILE}"; then
+    echo "Updating ${BASHRC_FILE} for Wac..."
+    echo "" >> "${BASHRC_FILE}"
+    echo "# wit-deps ${WIT_DEPS_VERSION}" >> "${BASHRC_FILE}"
+    echo "${WIT_DEPS_BASHRC_ENTRY}" >> "${BASHRC_FILE}"
+fi
+
+# Set proper ownership
+chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${WIT_DEPS_INSTALL_DIR}"
+chmod u+x "${WIT_DEPS_INSTALL_DIR}/wit-deps"
+
+echo "wit-deps ${WIT_DEPS_VERSION} has been installed for ${_REMOTE_USER}"
+
 ###############
 # Wit Bindgen #
 ###############
