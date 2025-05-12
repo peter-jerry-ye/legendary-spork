@@ -1,0 +1,7 @@
+world exports {
+  export types;
+}
+
+world imports {
+  import types;
+}
