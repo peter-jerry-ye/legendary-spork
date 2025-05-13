@@ -1,4 +1,4 @@
-# MoonBit WASI SQLITE Template
+# MoonBit WASI Tree Sitter Template
 
 This is the template for developing a composed components using MoonBit and C.
 
@@ -27,7 +27,7 @@ The structure is organized as follows:
 
 ## Usage
 
-1. Define in interface `types` in `wit/sqlite.wit`. 
+1. Define in interface `types` in `wit/interface.wit`. 
 2. Run `just regenerate` to regenerate the files.
 3. Implement the new definitions in `impl.c`.
 4. Use them in `cli`.

@@ -1,0 +1,5 @@
+package moonbit-community:tree-sitter@0.1.0;
+
+interface types {
+    
+}
