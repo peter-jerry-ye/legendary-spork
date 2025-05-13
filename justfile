@@ -11,7 +11,7 @@ build target=("debug"):
     @echo "Building MoonBit Component"
     just cli/build {{ target }}
     @echo "Compose Components"
-    wac plug cli/target/cli.wasm --plug lib/build/wasi-sqlite.wasm -o cli/target/executable.wasm
+    wac plug cli/target/cli.wasm --plug lib/build/wasi-tree-sitter.wasm -o cli/target/executable.wasm
 
 regenerate:
     wit-bindgen c wit -w exports --out-dir lib/gen

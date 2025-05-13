@@ -8,10 +8,12 @@ The structure is organized as follows:
 .
 ├── cli
 ├── deps
+├── docs
 ├── justfile
 ├── lib
 ├── README.md
-├── sqlite-amalgamation-3490200
+├── tree-sitter
+├── tree-sitter-json
 └── wit
 ```
 
@@ -19,7 +21,8 @@ The structure is organized as follows:
 - `deps` : MoonBit project, generated using interface defined in `wit`
 - `justfile` : contains scripts based on just system
 - `lib` : C project, containing CMakefiles and `impl.c` for implementation, together with generated files under `gen`
-- `sqlite-amalgamation-3490200` : SQLite source code
+- `tree-sitter` : Tree Sitter source code
+- `tree-sitter-json` : Tree Sitter for JSON source code
 - `wit` : definition for WIT
 
 ## Usage
