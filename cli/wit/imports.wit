@@ -3,5 +3,5 @@ package moonbit-community:cli;
 world cli {
   import wasi:http/outgoing-handler@0.2.0;
   include wasi:cli/command@0.2.0;
-  include moonbit-community:sqlite/imports@0.1.0;
+  include moonbit-community:tree-sitter/imports@0.1.0;
 }

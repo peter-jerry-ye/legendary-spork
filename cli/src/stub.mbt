@@ -19,5 +19,7 @@ pub fn run() -> Result[Unit, Unit] {
 ///|
 /// User should change this function to do what they want
 async fn top() -> Unit! {
+  let language = @types.get_language()
+  language.drop()
   @io.println!("Hello, world!")
 }

@@ -2,6 +2,9 @@
 #include "exports.h"
 #include <stdlib.h>
 
+// Exported Functions from `moonbit-community:tree-sitter/types@0.1.0`
+
+
 // Canonical ABI intrinsics
 
 __attribute__((__weak__, __export_name__("cabi_realloc")))
@@ -13,7 +16,41 @@ void *cabi_realloc(void *ptr, size_t old_size, size_t align, size_t new_size) {
   return ret;
 }
 
+// Helper Functions
+
+__attribute__((__import_module__("[export]moonbit-community:tree-sitter/types@0.1.0"), __import_name__("[resource-drop]language")))
+extern void __wasm_import_exports_moonbit_community_tree_sitter_types_language_drop(int32_t handle);
+
+void exports_moonbit_community_tree_sitter_types_language_drop_own(exports_moonbit_community_tree_sitter_types_own_language_t handle) {
+  __wasm_import_exports_moonbit_community_tree_sitter_types_language_drop(handle.__handle);
+}
+
+__attribute__(( __import_module__("[export]moonbit-community:tree-sitter/types@0.1.0"), __import_name__("[resource-new]language")))
+extern int32_t __wasm_import_exports_moonbit_community_tree_sitter_types_language_new(int32_t);
+
+__attribute__((__import_module__("[export]moonbit-community:tree-sitter/types@0.1.0"), __import_name__("[resource-rep]language")))
+extern int32_t __wasm_import_exports_moonbit_community_tree_sitter_types_language_rep(int32_t);
+
+exports_moonbit_community_tree_sitter_types_own_language_t exports_moonbit_community_tree_sitter_types_language_new(exports_moonbit_community_tree_sitter_types_language_t *rep) {
+  return (exports_moonbit_community_tree_sitter_types_own_language_t) { __wasm_import_exports_moonbit_community_tree_sitter_types_language_new((int32_t) rep) };
+}
+
+exports_moonbit_community_tree_sitter_types_language_t* exports_moonbit_community_tree_sitter_types_language_rep(exports_moonbit_community_tree_sitter_types_own_language_t handle) {
+  return (exports_moonbit_community_tree_sitter_types_language_t*) __wasm_import_exports_moonbit_community_tree_sitter_types_language_rep(handle.__handle);
+}
+
+__attribute__((__export_name__("moonbit-community:tree-sitter/types@0.1.0#[dtor]language")))
+void __wasm_export_exports_moonbit_community_tree_sitter_types_language_dtor(exports_moonbit_community_tree_sitter_types_language_t* arg) {
+  exports_moonbit_community_tree_sitter_types_language_destructor(arg);
+}
+
 // Component Adapters
+
+__attribute__((__export_name__("moonbit-community:tree-sitter/types@0.1.0#get-language")))
+int32_t __wasm_export_exports_moonbit_community_tree_sitter_types_get_language(void) {
+  exports_moonbit_community_tree_sitter_types_own_language_t ret = exports_moonbit_community_tree_sitter_types_get_language();
+  return (ret).__handle;
+}
 
 // Ensure that the *_component_type.o object is linked in
 

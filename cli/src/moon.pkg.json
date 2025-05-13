@@ -16,6 +16,7 @@
     },
     "peter-jerry-ye/io/io",
     "peter-jerry-ye/async/loop",
-    "peter-jerry-ye/async/promise"
+    "peter-jerry-ye/async/promise",
+    "moonbit-community/tree-sitter/interface/moonbit_community/tree_sitter/types"
   ]
 }

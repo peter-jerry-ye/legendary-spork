@@ -9,6 +9,26 @@ extern "C" {
 #include <stdbool.h>
 #include <stddef.h>
 
+typedef struct exports_moonbit_community_tree_sitter_types_own_language_t {
+  int32_t __handle;
+} exports_moonbit_community_tree_sitter_types_own_language_t;
+
+typedef struct exports_moonbit_community_tree_sitter_types_language_t exports_moonbit_community_tree_sitter_types_language_t;
+
+typedef exports_moonbit_community_tree_sitter_types_language_t* exports_moonbit_community_tree_sitter_types_borrow_language_t;
+
+// Exported Functions from `moonbit-community:tree-sitter/types@0.1.0`
+exports_moonbit_community_tree_sitter_types_own_language_t exports_moonbit_community_tree_sitter_types_get_language(void);
+
+// Helper Functions
+
+extern void exports_moonbit_community_tree_sitter_types_language_drop_own(exports_moonbit_community_tree_sitter_types_own_language_t handle);
+
+extern exports_moonbit_community_tree_sitter_types_own_language_t exports_moonbit_community_tree_sitter_types_language_new(exports_moonbit_community_tree_sitter_types_language_t *rep);
+extern exports_moonbit_community_tree_sitter_types_language_t* exports_moonbit_community_tree_sitter_types_language_rep(exports_moonbit_community_tree_sitter_types_own_language_t handle);
+void exports_moonbit_community_tree_sitter_types_language_destructor(exports_moonbit_community_tree_sitter_types_language_t *rep);
+
+
 #ifdef __cplusplus
 }
 #endif
